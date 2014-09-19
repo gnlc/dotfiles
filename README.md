@@ -12,14 +12,14 @@ This guide is compatible and interchangeable between OSX and Ubuntu installation
   * [Cloning the customised Proxama Django-Piston repo](#cloning-the-customised-proxama-django-piston-repo)
   * [Create a testing database directory](#create-a-testing-database-directory)
 * **[Pip, Virtualenv and Virtualenvwrapper](#pip-virtualenv-and-virtualenvwrapper)**
-  * Install Pip
-  * Install Virtualenv
-  * Install Virtualenvwrapper
-    * Shell profile setup
-    * Optional - Alias setup
-* **Setup a working virtualenv**
-  * Install SecureObjectKey server components
-* **Optional - Eclipse setup**
+  * [Install Pip](#install-pip)
+  * [Install Virtualenv](#install-virtualenv)
+  * [Install Virtualenvwrapper](#install-virtualenvwrapper)
+    * [Shell profile setup](#shell-profile-setup)
+    * [Optional - Alias setup](#optional-alias-setup)
+* **[Setup a working virtualenv](#setup-a-working-virtualenv)**
+  * [Install SecureObjectKey server components](#install-secureobjectkey-server-components)
+* **[Optional - Eclipse setup](#optional-eclipse-setup)**
   * Reserved for future use
   * blah blah 
   
@@ -28,7 +28,7 @@ This guide is compatible and interchangeable between OSX and Ubuntu installation
 
 The SecureObjectKey server Git repository can be found here [git@git.prx.ma:cardgateway/cardgateway-sok.git]()
 
-###### SSH keys and Git
+#### SSH keys and Git
 
 To clone this repository you'll need `git` installed but also to generate some SSH keys to authenticate yourself. Instructions for this are available on Proxama's gitlab [here](https://git.prx.ma/help/ssh).
 
@@ -46,7 +46,7 @@ git config --global user.email "super.awesome@proxama.com"
 git config --global user.name "Super Awesome"
 ```
 
-###### Cloning the SecureObjectKey repo
+#### Cloning the SecureObjectKey repo
 
 Make sure you have changed into the directory where you want this project to live. Let's say it's `~/Documents/Proxama/gitRepos/`, just for fun.
 
@@ -54,7 +54,7 @@ Make sure you have changed into the directory where you want this project to liv
 git clone git@git.prx.ma:cardgateway/cardgateway-sok.git
 ```
 
-###### Cloning the customised Proxama Django-piston repo
+#### Cloning the customised Proxama Django-piston repo
 
 This is a separate repo from the main project and you will need specific permissions to access it. Create a directory in your repo cloning root, call it `django-piston`.
 
@@ -65,7 +65,7 @@ git clone git@git.prx.ma:proxama/django-piston.git
 Remember this file path, you'll need it later when installing stuff using `pip`.
 
 
-###### Create a testing database directory
+#### Create a testing database directory
 
 Assuming you've cloned the repo above, you'll have a folder name `cardgateway-sok`. Right beside it create another folder entitled `cardgateway-dbs`. You can do this on the command line with `mkdir cardgateway-dbs`.
 
@@ -230,3 +230,6 @@ You need to run this command from within that directory, `cd cardgateway-sok\con
 pip install -r pip.list
 ```
 
+## Optional - Eclipse setup
+
+Something about setting up Eclipse...
