@@ -6,7 +6,7 @@ This guide is compatible and interchangeable between OSX and Ubuntu installation
 
 ## Table of contents
 
-* **[Git repository information](#markdown-header-git-repository-info)**
+* **[Git repository information](#git-repository-info)**
   * SSH Keys and Git
   * Cloning the SecureObjectKey repo
   * Cloning the customised Proxama Django-Piston repo
