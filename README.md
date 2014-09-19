@@ -19,7 +19,7 @@ This guide is compatible and interchangeable between OSX and Ubuntu installation
     * [Optional - Alias setup](#optional-alias-setup)
 * **[Setup a working virtualenv](#setup-a-working-virtualenv)**
   * [Install SecureObjectKey server components](#install-secureobjectkey-server-components)
-* **[Optional - Eclipse setup](#optional-eclipse-setup)**
+* **[Optional - Eclipse setup](#optional---eclipse-setup)**
   * Reserved for future use
   * blah blah 
   
