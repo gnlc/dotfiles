@@ -1,0 +1,19 @@
+#
+# /etc/fstab: static file system information
+#
+# <file system> <dir>   <type>  <options>       <dump>  <pass>
+# /dev/sda1
+UUID=a6e16163-0282-4985-8e3a-067286012ddf       /               ext4            rw,relatime,data=ordered,discard        0 1
+
+# SnapRAID Disks
+/dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T0074096-part1            /mnt/disk1 xfs defaults 0 2
+/dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WCC1T0632015-part1            /mnt/disk2 xfs defaults 0 2
+/dev/disk/by-id/ata-Hitachi_HDS5C3030ALA630_MJ1311YNG5SD3A-part1          /mnt/disk3 xfs defaults 0 2
+/dev/disk/by-id/ata-Hitachi_HDS5C3030ALA630_MJ1311YNG4GE8A-part1          /mnt/disk4 xfs defaults 0 2
+/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_43LNPGSGS-part1  /mnt/disk5 xfs defaults 0 2
+
+# SnapRAID Parity Disks
+/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_X3544DGKS-part1                  /mnt/parity1 xfs defaults 0 2
+
+# MHDDFS
+mhddfs#/mnt/disk1,/mnt/disk2,/mnt/disk3,/mnt/disk4,/mnt/disk5 /mnt/storage fuse defaults,allow_other,nonempty,mlimit=50G 0 0
