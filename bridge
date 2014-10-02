@@ -1,0 +1,6 @@
+Interface=br0
+Connection=bridge
+BindsToInterfaces=(enp4s0)
+IP=dhcp
+## Ignore (R)STP and immediately activate the bridge
+#SkipForwardingDelay=yes
