@@ -30,4 +30,4 @@ docker run -d --name=btsync -p 8888:8888 -p 55555:55555 -v /mnt/storage/appdata/
 ##
 # Transmission
 ##
-docker run -d --net="host" --name=transmission -e USERNAME="alexktz" -e PASSWORD="22" -v /mnt/storage/appdata/transmission:/config -v /mnt/storage/downloads/torrents:/downloads -v /etc/localtime:/etc/localtime:ro gfjardim/transmission
+docker run -d --net="host" --name=transmission -e USERNAME="alexktz" -e PASSWORD="editme" -v /mnt/storage/appdata/transmission:/config -v /mnt/storage/downloads/torrents:/downloads -v /etc/localtime:/etc/localtime:ro gfjardim/transmission
