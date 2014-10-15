@@ -31,3 +31,8 @@ docker run -d --name=btsync -p 8888:8888 -p 55555:55555 -v /mnt/storage/appdata/
 # Transmission
 ##
 docker run -d --net="host" --name=transmission -e USERNAME="alexktz" -e PASSWORD="editme" -v /mnt/storage/appdata/transmission:/config -v /mnt/storage/downloads/torrents:/downloads -v /etc/localtime:/etc/localtime:ro gfjardim/transmission
+
+##
+# Smokeping
+## needs updating for ArchX paths
+docker run --name smokeping -p 8000:80 -v /root/smokeping/smokeping:/etc/smokeping:ro\ -d dperson/smokeping
