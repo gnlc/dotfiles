@@ -36,3 +36,4 @@ docker run -d --net="host" --name=transmission -e USERNAME="alexktz" -e PASSWORD
 # Smokeping
 ## needs updating for ArchX paths
 docker run --name smokeping -p 8000:80 -v /root/smokeping/smokeping:/etc/smokeping:ro\ -d dperson/smokeping
+docker run --name smokeping -p 8000:80 -v /mnt/storage/appdata/smokeping:/etc/smokeping:ro -v /etc/localtime:/etc/localtime:ro -d dperson/smokeping
