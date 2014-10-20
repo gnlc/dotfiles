@@ -64,3 +64,5 @@ read userpw
 useradd -m -g users -p $userpw -s /bin/bash $USER
 usermod -a -G wheel $USER
 echo %wheel ALL=(ALL) NOPASSWD: ALL >> /etc/sudoers
+
+
