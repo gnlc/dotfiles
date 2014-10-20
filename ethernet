@@ -1,5 +1,5 @@
 Description='A basic dhcp ethernet connection'
-Interface=enp4s0
+Interface=eno1
 Connection=ethernet
 IP=no
 ## for DHCPv6
