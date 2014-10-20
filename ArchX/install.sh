@@ -11,6 +11,11 @@ echo "------------------------------------------"
 read -p "Press [Enter] To Start your Installation"
 echo "------------------------------------------"
 
+echo -n "Enter 'sdX' for grub installation. e.g. 'sda': "
+read grubdev
+echo -n "Please enter desired password for '$USER' (shown cleartext!): "
+read userpw
+
 ###
 # Initial Setup
 ###
@@ -44,7 +49,7 @@ echo Server = http://repo.archlinux.fr/\$arch >> /etc/pacman.conf
 ###
 echo "Base software utils being setup..."
 pacman -Syy --noconfirm sudo wget openssh grub
-pacman -S --noconfirm git archey3 packer docker screen htop mhddfs
+pacman -S --noconfirm git archey3 packer docker screen htop
 git clone https://github.com/krunchyal/dotfiles.git $DOTFILES/
 cd $DOTFILES/
 
@@ -60,8 +65,6 @@ netctl enable bridge
 ###
 # User setup
 ###
-echo -n "Please enter password for '$USER' (this will be shown cleartext!): "
-read userpw
 useradd -m -g users -p $userpw -s /bin/bash $USER
 usermod -a -G wheel $USER
 echo %wheel ALL=\(ALL\) NOPASSWD: ALL >> /etc/sudoers
@@ -80,8 +83,6 @@ systemctl enable sshd
 ###
 # GRUB
 ###
-echo -n "Enter 'sdX' for grub installation. e.g. 'sda': "
-read grubdev
 grub-install --target=i386-pc --recheck /dev/$grubdev
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -89,7 +90,30 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # SnapRAID
 ###
 cp $DOTFILES/ArchX/snapraid.conf /etc/snapraid.conf
-packer -noconfirm -S snapraid
+packer --noconfirm -S snapraid
+packer --noconfirm -S mhddfs
+
+###
+# fstab
+###
+
+echo "" >> /etc/fstab
+echo "# SnapRAID Disks" >> /etc/fstab
+echo "/dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T0074096-part1            /mnt/disk1 xfs defaults 0 2" >> /etc/fstab
+echo "/dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WCC1T0632015-part1            /mnt/disk2 xfs defaults 0 2" >> /etc/fstab
+echo "/dev/disk/by-id/ata-Hitachi_HDS5C3030ALA630_MJ1311YNG5SD3A-part1          /mnt/disk3 xfs defaults 0 2" >> /etc/fstab
+echo "/dev/disk/by-id/ata-Hitachi_HDS5C3030ALA630_MJ1311YNG4GE8A-part1          /mnt/disk4 xfs defaults 0 2" >> /etc/fstab
+echo "/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_43LNPGSGS-part1  /mnt/disk5 xfs defaults 0 2" >> /etc/fstab
+echo "" >> /etc/fstab
+echo "# SnapRAID Parity Disks" >> /etc/fstab
+echo "/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_X3544DGKS-part1                  /mnt/parity1 xfs defaults 0 2" >> /etc/fstab
+echo "" >> /etc/fstab
+echo "# MHDDFS" >> /etc/fstab
+echo "mhddfs#/mnt/disk1,/mnt/disk2,/mnt/disk3,/mnt/disk4,/mnt/disk5 /mnt/storage fuse defaults,allow_other,nonempty,mlimit=50G 0 0" >> /etc/fstab
+
+###
+# Finishing off
+###
 
 echo ""
 echo "-----------------"
