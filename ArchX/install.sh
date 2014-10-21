@@ -1,24 +1,18 @@
 #!/bin/bash
 
-# MUST BE RUN WITH CHROOT DURING INSTALLATION
-# Install script for ArchX
+echo "We are now in arch-chroot!"
+read -p "Press [Enter] to continue your installation."
+
+###
+# Initial Setup
+###
 
 # Defaults
 DOTFILES='/root/dotfiles'
 USER='alex'
 
-echo "------------------------------------------"
-read -p "Press [Enter] To Start your Installation"
-echo "------------------------------------------"
-
-echo -n "Enter 'sdX' for grub installation. e.g. 'sda': "
-read grubdev
 echo -n "Please enter desired password for '$USER' (shown cleartext!): "
 read userpw
-
-###
-# Initial Setup
-###
 
 echo ArchX > /etc/hostname
 echo en_GB.UTF-8 UTF-8 > /etc/locale.gen
@@ -120,4 +114,4 @@ echo "-----------------"
 echo "You should connect data drives before rebooting."
 echo "-----------------"
 echo ""
-echo "Script complete..."
+echo "CHROOT script complete..."
