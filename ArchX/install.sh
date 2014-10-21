@@ -23,7 +23,7 @@ echo "------------------------------------------"
 DOTFILES='/root/dotfiles'
 USER='alex'
 
-echo -n "Please drive to install GRUB on. /dev/sdXY: "
+echo -n "Please drive to install GRUB on. /dev/sdX: "
 read devgrub
 echo -n "Please enter desired password for '$USER' (shown cleartext!): "
 read userpw
