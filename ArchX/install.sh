@@ -1,18 +1,14 @@
 #!/bin/bash
 
-echo ""
+archx="
+    /\            | |   \ \ / /
+   /  \   _ __ ___| |__  \ V / 
+  / /\ \ | '__/ __| '_ \  > <  
+ / ____ \| | | (__| | | |/ . \ 
+/_/    \_\_|  \___|_| |_/_/ \_\
+"
 echo "------------------------------------------"
-echo "    /\            | |   \ \ / /"
-echo "   /  \   _ __ ___| |__  \ V / "
-echo "  / /\ \ | '__/ __| '_ \  > <  "
-echo " / ____ \| | | (__| | | |/ . \ "
-echo "/_/    \_\_|  \___|_| |_/_/ \_\"
-echo ""
-echo "Automated Arch installer script"
-echo "by"
-echo "IronicBadger" 
-echo "Oct/2014"
-echo "------------------------------------------"
+echo "$archx"
 echo ""
 echo "We are now in arch-chroot!"
 echo ""

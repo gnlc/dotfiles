@@ -2,17 +2,21 @@
 
 # Pre-install script for ArchX
 
+archx="
+    /\            | |   \ \ / /
+   /  \   _ __ ___| |__  \ V / 
+  / /\ \ | '__/ __| '_ \  > <  
+ / ____ \| | | (__| | | |/ . \ 
+/_/    \_\_|  \___|_| |_/_/ \_\
+"
+
 echo "------------------------------------------"
-echo "    /\            | |   \ \ / /"
-echo "   /  \   _ __ ___| |__  \ V / "
-echo "  / /\ \ | '__/ __| '_ \  > <  "
-echo " / ____ \| | | (__| | | |/ . \ "
-echo "/_/    \_\_|  \___|_| |_/_/ \_\"
+echo "$archx"
 echo ""
-echo "Automated Arch installer script"
+echo "Automated Arch installer script v0.1"
 echo "by"
 echo "IronicBadger" 
-echo "Oct/2014"
+echo "Last Updated: Oct 2014"
 echo "------------------------------------------"
 
 echo -n "Enter 'sdX' for installation. e.g. 'sda': "
@@ -56,14 +60,5 @@ echo "If you're reading this, then everything is complete? :)"
 
 echo ""
 echo "------------------------------------------"
-echo "    /\            | |   \ \ / /"
-echo "   /  \   _ __ ___| |__  \ V / "
-echo "  / /\ \ | '__/ __| '_ \  > <  "
-echo " / ____ \| | | (__| | | |/ . \ "
-echo "/_/    \_\_|  \___|_| |_/_/ \_\"
-echo ""
-echo "Automated Arch installer script"
-echo "by"
-echo "IronicBadger" 
-echo "Oct/2014"
+echo "$archx"
 echo "------------------------------------------"
