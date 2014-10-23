@@ -76,15 +76,14 @@ useradd -m -g users -p $userpw -s /bin/bash $USER
 usermod -a -G wheel $USER
 echo %wheel ALL=\(ALL\) NOPASSWD: ALL >> /etc/sudoers
 
+groupadd plex
+groupmod -g 1001 plex
+useradd -M -g plex -s /usr/bin/nologin plex
+
 ###
 # Build setup
 ###
 echo MAKEFLAGS="-j4" >> /etc/makepkg.conf
-
-###
-# Services
-###
-systemctl enable docker sshd cronie
 
 ###
 # GRUB
@@ -98,11 +97,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 cp $DOTFILES/ArchX/snapraid.conf /etc/snapraid.conf
 packer --noconfirm -S snapraid
 packer --noconfirm -S mhddfs
+packer --noconfirm -S netatalk
 
 ###
 # fstab
 ###
-
 echo "" >> /etc/fstab
 echo "# SnapRAID Disks" >> /etc/fstab
 echo "/dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T0074096-part1            /mnt/disk1 xfs defaults 0 2" >> /etc/fstab
@@ -116,6 +115,21 @@ echo "/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_X3544DGKS-part1                  /m
 echo "" >> /etc/fstab
 echo "# MHDDFS" >> /etc/fstab
 echo "mhddfs#/mnt/disk1,/mnt/disk2,/mnt/disk3,/mnt/disk4,/mnt/disk5 /mnt/storage fuse defaults,allow_other,nonempty,mlimit=50G 0 0" >> /etc/fstab
+
+###
+# Netatalk
+###
+echo "[Global]" >> /etc/afp.conf
+echo "mimic model = TimeCapsule6,106" >> /etc/afp.conf
+echo "" >> /etc/afp.conf
+echo "[TimeMachine]" >> /etc/afp.conf
+echo "path = /mnt/storage/Media/backups/TimeMachine" >> /etc/afp.conf
+echo "time machine = yes" >> /etc/afp.conf
+
+###
+# Services
+###
+systemctl enable docker sshd cronie netatalk
 
 ###
 # Finishing off
