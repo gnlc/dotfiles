@@ -56,8 +56,7 @@ echo Server = http://repo.archlinux.fr/\$arch >> /etc/pacman.conf
 # My base software utils
 ###
 echo "Base software utils being setup..."
-pacman -Syy --noconfirm sudo wget openssh grub
-pacman -S --noconfirm git archey3 packer docker screen htop
+pacman -Syy --noconfirm sudo wget openssh grub git archey3 packer docker screen htop cronie
 git clone https://github.com/krunchyal/dotfiles.git $DOTFILES/
 cd $DOTFILES/
 
@@ -85,8 +84,7 @@ echo MAKEFLAGS="-j4" >> /etc/makepkg.conf
 ###
 # Services
 ###
-systemctl enable docker
-systemctl enable sshd
+systemctl enable docker sshd cronie
 
 ###
 # GRUB
