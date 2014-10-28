@@ -1,0 +1,39 @@
+##
+#Docker Startup
+##
+@reboot /usr/bin/docker start btsync 2>&1 > /dev/null
+@reboot /usr/bin/docker start plex 2>&1 > /dev/null
+@reboot /usr/bin/docker start nzbget 2>&1 > /dev/null
+@reboot /usr/bin/docker start nzbdrone 2>&1 > /dev/null
+@reboot /usr/bin/docker start nzbmegasearch 2>&1 > /dev/null
+@reboot /usr/bin/docker start mylar 2>&1 > /dev/null
+@reboot /usr/bin/docker start couchpotato 2>&1 > /dev/null
+
+
+
+##
+#Backup
+##
+#0 1 * * * bash /usr/local/bin/backup/backup.sh appdata.conf 2>&1 > /dev/null
+#0 2 * * * bash /usr/local/bin/backup/backup.sh lonix.me.conf 2>&1 > /dev/null
+#0 3 * * * bash /usr/local/bin/backup/backup.sh rproxy.conf 2>&1 > /dev/null
+#0 4 * * * bash /usr/local/bin/backup/backup.sh hist.conf 2>&1 > /dev/null
+
+
+##
+#Snapraid
+##
+@reboot /usr/bin/python /root/snapraid-runner-master/snapraid-runner.py -c /root/snapraid-runner-master/snapraid-runner.conf 2>&1
+0 2 * * * /usr/bin/python /root/snapraid-runner-master/snapraid-runner.py -c /root/snapraid-runner-master/snapraid-runner.conf 2>&1
+
+
+
+##
+#Boot Announce
+##
+@reboot  echo "Serveren has booted $(date)" | mail -s "Server på" lonixx@gmail.com  2>&1 > /dev/null
+
+##
+#Dynamic DNS
+##
+@hourly /usr/local/bin/dns-digitalocean.py >> /var/log/dnsupdate.log 2>&1
