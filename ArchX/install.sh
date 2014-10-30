@@ -56,7 +56,7 @@ echo Server = http://repo.archlinux.fr/\$arch >> /etc/pacman.conf
 # My base software utils
 ###
 echo "Base software utils being setup..."
-pacman -Syy --noconfirm sudo wget openssh grub git archey3 packer docker screen htop cronie
+pacman -Syy --noconfirm sudo wget openssh grub git archey3 packer docker screen htop cronie samba mc rsync
 git clone https://github.com/krunchyal/dotfiles.git $DOTFILES/
 cd $DOTFILES/
 
@@ -108,28 +108,24 @@ echo "/dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T0074096-part1            
 echo "/dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WCC1T0632015-part1            /mnt/disk2 xfs defaults 0 2" >> /etc/fstab
 echo "/dev/disk/by-id/ata-Hitachi_HDS5C3030ALA630_MJ1311YNG5SD3A-part1          /mnt/disk3 xfs defaults 0 2" >> /etc/fstab
 echo "/dev/disk/by-id/ata-Hitachi_HDS5C3030ALA630_MJ1311YNG4GE8A-part1          /mnt/disk4 xfs defaults 0 2" >> /etc/fstab
-echo "/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_43LNPGSGS-part1  /mnt/disk5 xfs defaults 0 2" >> /etc/fstab
+echo "/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_43LNPGSGS-part1                    /mnt/disk5 xfs defaults 0 2" >> /etc/fstab
 echo "" >> /etc/fstab
 echo "# SnapRAID Parity Disks" >> /etc/fstab
-echo "/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_X3544DGKS-part1                  /mnt/parity1 xfs defaults 0 2" >> /etc/fstab
+echo "/dev/disk/by-id/ata-TOSHIBA_DT01ACA300_X3544DGKS-part1                    /mnt/parity1 xfs defaults 0 2" >> /etc/fstab
 echo "" >> /etc/fstab
 echo "# MHDDFS" >> /etc/fstab
 echo "mhddfs#/mnt/disk1,/mnt/disk2,/mnt/disk3,/mnt/disk4,/mnt/disk5 /mnt/storage fuse defaults,allow_other,nonempty,mlimit=50G 0 0" >> /etc/fstab
 
 ###
-# Netatalk
+# File Sharing
 ###
-echo "[Global]" >> /etc/afp.conf
-echo "mimic model = TimeCapsule6,106" >> /etc/afp.conf
-echo "" >> /etc/afp.conf
-echo "[TimeMachine]" >> /etc/afp.conf
-echo "path = /mnt/storage/Media/backups/TimeMachine" >> /etc/afp.conf
-echo "time machine = yes" >> /etc/afp.conf
+wget -O /etc/samba/smb.conf https://raw.githubusercontent.com/krunchyal/dotfiles/master/ArchX/smb.conf
+wget -O /etc/afp.conf https://raw.githubusercontent.com/krunchyal/dotfiles/master/ArchX/afp.conf
 
 ###
 # Services
 ###
-systemctl enable docker sshd cronie netatalk
+systemctl enable docker sshd cronie netatalk smbd nmbd
 
 ###
 # Finishing off
