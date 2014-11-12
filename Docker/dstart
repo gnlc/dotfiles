@@ -1,0 +1,5 @@
+#!/bin/bash
+# 
+# Runs docker start on the specified container
+
+docker start "$@"

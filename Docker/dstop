@@ -1,0 +1,5 @@
+#!/bin/bash
+# 
+# Runs docker stop on the specified container
+
+docker stop "$@"
