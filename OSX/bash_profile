@@ -5,10 +5,7 @@ alias blog="ssh -l root blog.ktz.me"
 ### File path shortcuts (lazy)
 alias prox="cd /Users/AlexWork/Proxama/repos"
 alias sok="cd /Users/Alex/Proxama/cardgateway-sok/"
-
-### Show / hide hidden files
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias qasdk="cd /Users/AlexWork/Proxama/repos/cardgateway-mobile-sdk-qa"
 
 ### Git shortcuts
 alias gs='git status '
@@ -16,8 +13,11 @@ alias gb='git branch '
 alias go='git checkout '
 alias ga='git add'
 alias gl='git log -10 --oneline && echo'
+alias glg='git lg'
 
-alias glog='git lg'
+### Show / hide hidden files
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 ### Python crapola
 export WORKON_HOME=$HOME/.virtualenvs
