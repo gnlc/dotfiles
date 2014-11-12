@@ -6,6 +6,10 @@ alias blog="ssh -l root blog.ktz.me"
 alias prox="cd /Users/AlexWork/Proxama/repos"
 alias sok="cd /Users/Alex/Proxama/cardgateway-sok/"
 
+### Show / hide hidden files
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
 ### Git shortcuts
 alias gs='git status '
 alias gb='git branch '
