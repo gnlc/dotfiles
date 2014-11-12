@@ -1,0 +1,11 @@
+[user]
+        name = Alex Kretzschmar
+        email = alex.kretzschmar@proxama.com
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+[format]
+        pretty = "Commit:  %C(yellow)%H%nAuthor:  %C(green)%aN <%aE>%nDate:    (%C(red)%ar%Creset) %ai%nSubject: %s%n%n%b"
+[alias]
+    lg = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(blue)<%an>%C(reset)' --abbrev-commit --date=relative
