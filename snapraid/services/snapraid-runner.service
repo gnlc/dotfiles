@@ -1,0 +1,7 @@
+[Unit]
+Description=SnapRAID Script for sync/scrub with email support
+
+[Service]
+Type=simple
+ExecStart=
+ExecStart=/usr/bin/python2 /appdata/snapraid/snapraid-runner.py

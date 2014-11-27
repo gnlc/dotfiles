@@ -1,0 +1,9 @@
+[Unit]
+Description="SnapRAID Runner Script Daily 3 AM."
+
+[Timer]
+OnCalendar=3:01
+Unit=snapraid-runner.service
+
+[Install]
+WantedBy=multi-user.target

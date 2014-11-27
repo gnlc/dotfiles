@@ -15,8 +15,8 @@ docker run -d -p 27020:8080 --name=sabnzbd -v /appdata/sabnzbd:/config -v /mnt/s
 ##
 # NZBDrone
 ##
-docker run -d --name=nzbdrone -v /appdata/nzbdrone:/config -v /mnt/storage/downloads:/downloads -v /mnt/storage/Media/TV:/tv -v /etc/localtime:/etc/localtime:ro -p 27021:8989 lonix/nzbdrone:2
-docker run -d --name=nzbdrone_family -v /appdata/nzbdrone_family:/config -v /mnt/storage/downloads:/downloads -v /mnt/storage/Media/TV_Family:/tv -v /etc/localtime:/etc/localtime:ro -p 28021:8989 lonix/nzbdrone:2
+docker run -d --name=nzbdrone -v /appdata/nzbdrone:/config -v /mnt/storage/downloads:/downloads -v /mnt/storage/Media/TV:/tv -v /etc/localtime:/etc/localtime:ro -p 27021:8989 lonix/nzbdrone:2.0
+docker run -d --name=nzbdrone_family -v /appdata/nzbdrone_family:/config -v /mnt/storage/downloads:/downloads -v /mnt/storage/Media/TV_Family:/tv -v /etc/localtime:/etc/localtime:ro -p 28021:8989 lonix/nzbdrone:2.0
 
 ##
 # CouchPotato
