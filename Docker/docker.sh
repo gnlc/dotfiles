@@ -10,7 +10,9 @@ docker run -d --name=plex --net=host -v /etc/localtime:/etc/localtime:ro -v /app
 ##
 # SABnzbd+
 ##
-docker run -d -p 27020:8080 --name=sabnzbd -v /appdata/sabnzbd:/config -v /mnt/storage:/mnt/storage  -v /etc/localtime:/etc/localtime:ro binhex/arch-sabnzbd
+#docker run -d -p 27020:8080 --name=sabnzbd -v /appdata/sabnzbd:/config -v /mnt/storage:/mnt/storage  -v /etc/localtime:/etc/localtime:ro binhex/arch-sabnzbd
+
+docker run -d --name=sabnzbd -v /etc/localtime:/etc/localtime:ro -v /appdata/sabnzbd:/config -v /mnt/storage:/mnt/storage -e PGID=1001 -e PUID=1001 -p 27020:8080 lonix/sabnzbd
 
 ##
 # NZBDrone
@@ -21,7 +23,7 @@ docker run -d --name=nzbdrone_family -v /appdata/nzbdrone_family:/config -v /mnt
 ##
 # CouchPotato
 ##
-docker run -d --name=couchpotato -v /etc/localtime:/etc/localtime:ro -v /appdata/couchpotato:/config -v /mnt/storage/downloads/complete/movies:/downloads -v /mnt/storage/Media/Movies:/movies -p 27022:5050 lonix/couchpotato:2
+docker run -d --name=couchpotato -v /etc/localtime:/etc/localtime:ro -v /appdata/couchpotato:/config -v /mnt/storage/downloads/complete/movies:/downloads -v /mnt/storage/Media/Movies:/movies -e PGID=1001 -e PUID=1001 -p 27022:5050 lonix/couchpotato:2.0
 
 ##
 # BTSync
