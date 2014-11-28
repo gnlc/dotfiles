@@ -1,3 +1,5 @@
+fish
+
 ### PATH
 export ANDROID_HOME=/Users/AlexWork/android-sdks/
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
