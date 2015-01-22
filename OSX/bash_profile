@@ -1,4 +1,9 @@
-fish
+alias grs="grails -Dgrails.server.host=0.0.0.0 run-app"
+alias tomcatlog="tail -f /Library/Tomcat/logs/catalina.out"
+alias cms="cd /Users/AlexWork/Proxama/repos/mc-sdk/cms-rc-2/"
+
+### DigitalOcean Tokens
+export TOKEN=f5438092fda98b5e3a8fd2b8c11a2e68b0a89cbc0edf8c3addc5256966afcaa1
 
 ### PATH
 export ANDROID_HOME=/Users/AlexWork/android-sdks/
@@ -7,6 +12,8 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ### SSH Connections
 alias archx="ssh -Y -p 27222 -l alex al.ktz.me"
 alias blog="ssh -l root blog.ktz.me"
+alias lsio="ssh -l alex linuxserver.io"
+alias qa="ssh -l alex-kretzschmar 192.168.0.212"
 
 ### File path shortcuts (lazy)
 alias prox="cd /Users/AlexWork/Proxama/repos"
