@@ -1,0 +1,4 @@
+#!/bin/bash
+# List all files on / excluding mounts 
+
+du --exclude /mnt -a -h / | sort -h -r | head -n 10
